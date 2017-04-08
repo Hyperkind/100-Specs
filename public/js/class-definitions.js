@@ -253,7 +253,7 @@ var scmList = ["git", "svn", "mercurial", "bazaar", "cvs"];
  * Lager        => "Strong"
  * Heffeweisen  => "German"
  * Stout        => [Array]
- *                  "Thick"	
+ *                  "Thick"
  *                  "Dark"
  * Porter       => "Bitter"
  * Ale          => [Array]
@@ -411,9 +411,9 @@ function favoritePlanet (currentPlanet) {
 		if (currentPlanet === planets[i]) {
 			var ranPlanet = planets[Math.floor(Math.random() * planets.length)];
 			return 'I\'m from ' + currentPlanet + ', but I wish I could go to ' + ranPlanet + '.';
-		} 
+		}
 	}
-	return currentPlanet + " is not a planet!"; 
+	return currentPlanet + " is not a planet!";
 }
 
 /* Step 27
@@ -470,7 +470,7 @@ Person.prototype.earnMoney = function (x) {
 function purchaseLaptop (laptop) {
 	if (!laptopCosts[laptop]) {
 		return -1;
-	} else { 
+	} else {
       if (typeof laptopCosts[laptop] === 'number') {
         return laptopCosts[laptop].toString();
       }
@@ -490,7 +490,7 @@ function purchaseLaptop (laptop) {
  */
 function canTalkAbout (club) {
 	if (club_name === club) {
-		return false;		
+		return false;
 	} else {
 	return true;
 	}
@@ -631,8 +631,11 @@ SolarSystem.prototype.removePlanet = function () {
  *
  */
 var PrincessLeia = function (name, money, age, gender, isInTrouble) {
+	Person.call(this, name, money, age, gender);
 	this.isInTrouble = null;
 };
+
+PrincessLeia.prototype = Object.create(Person.prototype);
 
 PrincessLeia.prototype.shootsGun = function () {
 	this.isInTrouble = false;
@@ -671,6 +674,15 @@ PrincessLeia.prototype.marries = function (love) {
  *   staplePapers
  *
  */
+ var Stapler = function (color, maxPapers) {};
+
+ Stapler.prototype.staplePapers = function (papers) {
+	 if (papers <= maxPapers) {
+		 return true;
+	 } else {
+		 return false;
+	 }
+ };
 
 
 /* Step 35
